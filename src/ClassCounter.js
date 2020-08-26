@@ -17,7 +17,7 @@ export default class ClassCounter extends React.Component {
     decHandler = () => {
         this.setState(({ counter }) => {
             return {
-                counter: counter - 1
+                counter: counter - 1 >= 0 ? counter - 1 : 0
             }
         })
     }
@@ -25,6 +25,7 @@ export default class ClassCounter extends React.Component {
     render() {
         return (
             <div className="counter">
+                <p>Class Counter</p>
                 <h1>{this.state.counter}</h1>
                 <button onClick={this.incHandler}>Increment</button>
                 <button onClick={this.decHandler}>Decrement</button>
